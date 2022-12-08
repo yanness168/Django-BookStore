@@ -1,0 +1,20 @@
+<div class="sidebar">
+
+  {% if user.is_authenticated %}
+    {% if user.is_staff %}
+    <a href="/admin">Go to Database</a>
+    <br>
+    <br>
+    {% endif %}
+  <a href="/add_book">Add New Book</a>
+  <br>
+  <br>
+  <a href="/logout">Log out!</a>
+  <br>
+  <br>
+  {% else %}
+  <a href="/">Home Page</a>
+  <br>
+  <br>
+  {% endif %}
+</div>
