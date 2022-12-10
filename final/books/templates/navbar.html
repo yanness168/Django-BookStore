@@ -1,20 +1,19 @@
-<div class="sidebar">
-
+<div class="sidebar" style="line-height: 2">
+  <a href="/">Home Page</a>
+  <br>
   {% if user.is_authenticated %}
     {% if user.is_staff %}
-    <a href="/admin">Go to Database</a>
-    <br>
+    <a href="/admin">Database</a>
     <br>
     {% endif %}
   <a href="/add_book">Add New Book</a>
   <br>
+  <a href="/api">Django REST APIs</a>
   <br>
   <a href="/logout">Log out!</a>
   <br>
-  <br>
   {% else %}
-  <a href="/">Home Page</a>
-  <br>
+  <a href="/register">Register An Account</a>
   <br>
   {% endif %}
 </div>

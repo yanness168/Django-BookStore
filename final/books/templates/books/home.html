@@ -11,15 +11,16 @@
 </head>
 <body>
 <div style="margin: 2%">
+  {% if user.is_authenticated %}
+  <h1 style="font-weight: bold; font-size: 20px ">Hi~ <u>{{user}}</u></h1>
+  {% endif %}
   {% include "navbar.html" %}
   {% block content %}
   {% if user.is_authenticated %}
-  <h1 style="font-weight: bold; font-size: 25px ">Hi~ {{user}}</h1>
   <h1 style="font-weight: bold; font-size: 25px; color: #ccbb6a ">Welcome to Yanness's Movie World</h1>
   <br>
   {% else %}
   <h1 style="font-weight: bold; font-size: 23px; color: #ccbb6a ">Please Login <a href="/login" style="color: #41464b">Here</a></h1>
-  <br>
   {% endif %}
   <div style="margin-left: 1%; margin-right: 1%">
     {% if book %}
@@ -27,15 +28,15 @@
     <P style="font-weight: bold">Book ID: {{ b.id}} -- <a href="/{{ b.id }}"><< {{ b.title }} >></a></P>
 <!--    <P style="font-style: italic">Posted By &#45;&#45; {{ m.posted_by }}</P>-->
     <ul>
-      <li>Published in: {{ b.year }}</li>
+      <li><u>Published in:</u> {{ b.year }}</li>
       <br>
-      <li>Rating: {{ b.rating }}</li>
+      <li><u>Rating:</u> {{ b.rating }}</li>
       <br>
-      <li>Description: {{ b.description }}</li>
+      <li><u>Description:</u> {{ b.description }}</li>
       <br>
-      <li>Posted on: {{ b.created_by }}</li>
+      <li><u>Posted on:</u> {{ b.created_by }}</li>
       <br>
-      <li>Last updated at: {{ b.last_updated }}</li>
+      <li><u>Last updated at:</u> {{ b.last_updated }}</li>
     </ul>
     <hr>
     {% endfor %}

@@ -4,7 +4,7 @@
 {% block content %}
 <h1 style="font-style: oblique; color: darkred; font-size: 25px; font-weight: bold">Warning!!</h1>
 <div style="margin: 1%">
-  Are you sure to <u style="font-weight: bold; font-size: 20px">Log Out</u> ?
+  <u style="font-weight: bold; font-size: 20px">{{user}}</u>, Are you sure to <u style="font-weight: bold; font-size: 20px">Log Out</u> ?
   <div>
     <form class="form" method="POST">
       {% csrf_token %}

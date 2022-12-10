@@ -24,7 +24,8 @@ def addBook(request):
     form = bookForm()
     # When form submitted
     if request.method == 'POST':
-        u = User.objects.get(id=request.POST.get('user'))
+        # u = User.objects.get(id=request.POST.get('user'))
+        u = request.user
         # Create movie object from form
         Book.objects.create(
             title=request.POST.get('title'),
@@ -59,7 +60,8 @@ def editBook(request, id):
             # Redirect to hom
             return redirect('/')
         else:
-            return HttpResponse("<h2>You are not the creator of the review...</h2>")
+            return HttpResponse("<h2>You are not the creator of the review...</h2>"
+                                "<h2>You can't modify the content...</h2>")
 
     # Return and render movie form
     context = {'form': form, 'b': book, "title": "Update Book"}
@@ -74,6 +76,7 @@ def deleteBook(request, id):
             b.delete()
             return redirect('/')
         else:
-            return HttpResponse("<h2>You are not the creator of the review...</h2>")
+            return HttpResponse("<h2>You are not the creator of the review...</h2>"
+                                "<h2>You can't delete the book...</h2>")
     else:
         return render(request, 'books/deleteBook.html', {'b': b, 'title': 'Deleting...'})
